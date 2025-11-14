@@ -9,7 +9,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
+        {/* Catch all app routes so nested routes inside App (/, /courses, /contact, etc.) work */}
+        <Route path="/*" element={<App />} />
         <Route path="/test" element={<Test />} />
       </Routes>
     </BrowserRouter>

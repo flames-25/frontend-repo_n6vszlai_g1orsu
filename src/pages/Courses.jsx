@@ -1,13 +1,14 @@
 import Navbar from '../Navbar'
 import Footer from '../components/Footer'
 import { motion } from 'framer-motion'
+import React from 'react'
 
 const allCourses = [
-  { id: 'python', title: 'Python (Basic to Advanced)', tag: 'Python', level: 'Beginner to Pro', color: 'from-indigo-500 to-violet-500' },
-  { id: 'digital-marketing', title: 'Digital Marketing', tag: 'Digital Marketing', level: 'All Levels', color: 'from-pink-500 to-rose-500' },
-  { id: 'content-creation', title: 'Content Creation', tag: 'Content', level: 'All Levels', color: 'from-amber-500 to-orange-500' },
-  { id: 'ai-tools', title: 'AI Tools Mastery', tag: 'AI Tools', level: 'All Levels', color: 'from-cyan-500 to-teal-500' },
-  { id: 'brand-building', title: 'How to Start a Brand', tag: 'Brand Building', level: 'All Levels', color: 'from-fuchsia-500 to-purple-500' },
+  { id: 'python', title: 'Python (Basic to Advanced)', tag: 'Python', level: 'Beginner to Pro', duration: '10 weeks', lessons: 48, color: 'from-indigo-500 to-violet-500', highlights: ['Hands-on projects', 'Automation', 'APIs', 'OOP'] },
+  { id: 'digital-marketing', title: 'Digital Marketing', tag: 'Digital Marketing', level: 'All Levels', duration: '8 weeks', lessons: 36, color: 'from-pink-500 to-rose-500', highlights: ['Funnels', 'SEO/SEM', 'Paid Ads', 'Analytics'] },
+  { id: 'content-creation', title: 'Content Creation', tag: 'Content', level: 'All Levels', duration: '6 weeks', lessons: 24, color: 'from-amber-500 to-orange-500', highlights: ['Storytelling', 'Hooks', 'Editing', 'Publishing'] },
+  { id: 'ai-tools', title: 'AI Tools Mastery', tag: 'AI Tools', level: 'All Levels', duration: '4 weeks', lessons: 18, color: 'from-cyan-500 to-teal-500', highlights: ['Prompts', 'Automation', 'Workflows', 'Use-cases'] },
+  { id: 'brand-building', title: 'How to Start a Brand', tag: 'Brand Building', level: 'All Levels', duration: '6 weeks', lessons: 22, color: 'from-fuchsia-500 to-purple-500', highlights: ['Positioning', 'Identity', 'Distribution', 'Monetization'] },
 ]
 
 const filters = ['All', 'Python', 'Digital Marketing', 'Content Creation', 'AI Tools', 'Brand Building']
@@ -55,7 +56,12 @@ export default function Courses() {
                   <span className="font-bold">{c.tag[0]}</span>
                 </div>
                 <h3 className="mt-4 text-xl font-semibold text-white">{c.title}</h3>
-                <p className="mt-2 text-sm text-white/70">{c.level}</p>
+                <p className="mt-2 text-sm text-white/70">{c.level} • {c.duration} • {c.lessons} lessons</p>
+                <ul className="mt-3 flex flex-wrap gap-2">
+                  {c.highlights.map(h => (
+                    <li key={h} className="text-xs text-white/70 rounded-full border border-white/10 px-2 py-1">{h}</li>
+                  ))}
+                </ul>
                 <div className="mt-6 flex items-center gap-2 text-indigo-300 group-hover:text-indigo-200 transition">
                   <span className="text-sm font-medium">View details</span>
                   <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
